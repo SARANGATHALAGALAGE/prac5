@@ -42,24 +42,19 @@ class Library {
 object LibraryApp extends App {
   val library = new Library
 
-  // Adding books to the library
   library.addBook(Book("1984", "George Orwell", "1234567890"))
   library.addBook(Book("Brave New World", "Aldous Huxley", "0987654321"))
   library.addBook(Book("Fahrenheit 451", "Ray Bradbury", "1111111111"))
 
-  // Listing all books
   library.listBooks()
-
-  // Searching for a book
+  
   val searchResult = library.searchBook("1234567890")
   searchResult match {
     case Some(book) => println(s"Found book: Title: ${book.title}, Author: ${book.author}, ISBN: ${book.isbn}")
     case None => println("Book not found.")
   }
 
-  // Removing a book
   library.removeBook("1234567890")
 
-  // Listing all books after removal
   library.listBooks()
 }
